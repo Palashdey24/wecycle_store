@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:wcycle_bd_store/api/firebase_api.dart';
+import 'package:wcycle_bd_store/common/dimensions/app_gaps.dart';
 import 'package:wcycle_bd_store/common/helper/dialog_loading/dialogs_helper.dart';
 import 'package:wcycle_bd_store/common/widgets/btn/back_btn.dart';
 import 'package:wcycle_bd_store/common/widgets/fields/field_text.dart';
 import 'package:wcycle_bd_store/core/config/theme/app_color.dart';
-import 'package:wcycle_bd_store/common/dimensions/app_gaps.dart';
-import 'package:wcycle_bd_store/presentation/add_data/widgets/recycle_firebase_data.dart';
-import 'package:wcycle_bd_store/widgets/page_header.dart';
 import 'package:wcycle_bd_store/core/config/theme/gap.dart';
-import 'package:wcycle_bd_store/widgets/page_frame.dart';
+import 'package:wcycle_bd_store/presentation/add_data/widgets/recycle_firebase_data.dart';
+import 'package:wcycle_bd_store/presentation/main_screen/widgets/page_frame.dart';
+import 'package:wcycle_bd_store/presentation/main_screen/widgets/page_header.dart';
 
 final firebaseHelper = FirebaseApi();
 

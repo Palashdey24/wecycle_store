@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class AppColor {
   static const Color kDefaultColor = Color.fromARGB(208, 26, 41, 65);
@@ -11,8 +11,8 @@ class AppColor {
 
 //It's for Colors
 
-  static const Color kPrimaryColor = Color(0xff1a5653);
-  static const Color kSecondColor = Color(0xff107869);
+  static const Color kPrimaryColor = Color(0xff2C3930);
+  static const Color kSecondColor = Color(0xff3F4F44);
   static const Color kDarkColor = Color(0xff08313a);
-  static const Color kLightColor = Color(0xff5cd85a);
+  static const Color kLightColor = Color(0xffDCD7C9);
 }

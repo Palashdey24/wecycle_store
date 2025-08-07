@@ -5,19 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:wcycle_bd_store/api/firebase_api.dart';
+import 'package:wcycle_bd_store/common/dimensions/app_gaps.dart';
 import 'package:wcycle_bd_store/common/helper/dialog_loading/dialogs_helper.dart';
 import 'package:wcycle_bd_store/common/helper/navigator/app_navigator.dart';
+import 'package:wcycle_bd_store/common/widgets/fields/field_text.dart';
 import 'package:wcycle_bd_store/core/config/theme/app_color.dart';
 import 'package:wcycle_bd_store/core/config/theme/app_font.dart';
-import 'package:wcycle_bd_store/common/dimensions/app_gaps.dart';
-import 'package:wcycle_bd_store/model/store_location_model.dart';
+import 'package:wcycle_bd_store/data/model/local/store_location_model.dart';
 import 'package:wcycle_bd_store/presentation/auth/pages/auth_state_page.dart';
-
-import 'package:wcycle_bd_store/common/widgets/fields/field_text.dart';
 import 'package:wcycle_bd_store/presentation/auth/widgets/store_info/final_step.dart';
 import 'package:wcycle_bd_store/presentation/auth/widgets/store_info/locations_input.dart';
-import 'package:wcycle_bd_store/presentation/auth/widgets/store_info/upload_file.dart';
 import 'package:wcycle_bd_store/presentation/auth/widgets/store_info/stepper_field_frame.dart';
+import 'package:wcycle_bd_store/presentation/auth/widgets/store_info/upload_file.dart';
 
 final fsApis = FirebaseApi();
 

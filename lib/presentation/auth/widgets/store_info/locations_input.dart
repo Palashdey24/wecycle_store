@@ -3,16 +3,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
+import 'package:http/http.dart' as https;
 import 'package:location/location.dart';
 import 'package:wcycle_bd_store/common/helper/dialog_loading/dialogs_helper.dart';
-
-import 'package:wcycle_bd_store/core/config/theme/gap.dart';
-import 'package:wcycle_bd_store/model/store_location_model.dart';
-import 'package:wcycle_bd_store/core/config/utility/string/app_string.dart';
 import 'package:wcycle_bd_store/common/widgets/other/reuse_list_tile.dart';
-import 'package:http/http.dart' as https;
-
-
+import 'package:wcycle_bd_store/core/config/theme/gap.dart';
+import 'package:wcycle_bd_store/core/config/utility/string/app_string.dart';
+import 'package:wcycle_bd_store/data/model/local/store_location_model.dart';
 
 class LocationsInput extends StatefulWidget {
   const LocationsInput({super.key, required this.storeLocationFn});

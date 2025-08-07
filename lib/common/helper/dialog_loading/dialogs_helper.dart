@@ -13,19 +13,21 @@ class DialogsLoading {
     ));
   }
 
- static void removeMessage(BuildContext context) {
+  static void removeMessage(BuildContext context) {
     ScaffoldMessenger.of(context).clearSnackBars();
   }
 
- static void showProgressBar(BuildContext context, {String? waitingMsg}) {
+  static void showProgressBar(BuildContext context,
+      {String? waitingMsg, Widget? child}) {
     showDialog(
       context: context,
       builder: (_) {
-        return Center(
-            child: LoadingWidgets(
-          backgroundColor: Colors.transparent,
-          waitingMessage: waitingMsg,
-        ));
+        return child ??
+            Center(
+                child: LoadingWidgets(
+              backgroundColor: Colors.transparent,
+              waitingMessage: waitingMsg,
+            ));
       },
     );
   }

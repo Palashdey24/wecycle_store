@@ -12,7 +12,7 @@ class CredentialBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClayContainer(
-      color: Colors.orange,
+      color: Colors.black,
       curveType: CurveType.concave,
       customBorderRadius: const BorderRadius.only(
           topRight: Radius.elliptical(35, 35), bottomLeft: Radius.circular(20)),
@@ -21,7 +21,7 @@ class CredentialBtn extends StatelessWidget {
         child: ClayText(
           signText,
           emboss: true,
-          color: Colors.grey,
+          color: Colors.white,
           style: AppFont.bodyMedium(context),
         ),
       ),

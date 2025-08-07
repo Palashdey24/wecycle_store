@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:wcycle_bd_store/common/widgets/other/clay_logo_text.dart';
 import 'package:wcycle_bd_store/core/config/theme/app_font.dart';
 import 'package:wcycle_bd_store/core/config/theme/gap.dart';
-import 'package:wcycle_bd_store/common/widgets/other/clay_logo_text.dart';
 
 class CredentialTextContainer extends StatelessWidget {
   const CredentialTextContainer(
@@ -18,7 +18,7 @@ class CredentialTextContainer extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         const ClayLogoText(
-          clayTColor: Colors.orange,
+          clayTColor: Colors.grey,
         ),
         const Gap(largeGap),
         Text(

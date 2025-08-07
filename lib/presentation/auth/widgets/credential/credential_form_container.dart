@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:wcycle_bd_store/api/sign_api.dart';
 import 'package:wcycle_bd_store/common/helper/dialog_loading/dialogs_helper.dart';
 import 'package:wcycle_bd_store/common/helper/navigator/app_navigator.dart';
-
+import 'package:wcycle_bd_store/common/widgets/fields/form_field_text.dart';
 import 'package:wcycle_bd_store/core/config/theme/app_font.dart';
 import 'package:wcycle_bd_store/core/config/theme/gap.dart';
-import 'package:wcycle_bd_store/api/sign_api.dart';
 import 'package:wcycle_bd_store/presentation/auth/pages/store_info_page.dart';
-import 'package:wcycle_bd_store/common/widgets/fields/form_field_text.dart';
-
-final signInHelpers = SignApis();
 
 class CredentialFormContainer extends StatelessWidget {
   const CredentialFormContainer({super.key, required this.isSign});
@@ -17,6 +14,35 @@ class CredentialFormContainer extends StatelessWidget {
   final bool isSign;
   static const String signInTxt = "Sign In";
   static const String signUpTxt = "Next";
+
+  static bool credentialPassValid(
+      String pass, String rePass, BuildContext context) {
+    if (pass != rePass) {
+      DialogsLoading.removeMessage(context);
+      DialogsLoading.showMessage(
+          context, "Please check password are mismatch or Number not valid");
+      return false;
+    }
+    return true;
+  }
+
+  static String? emailValid(String? value) {
+    if (value == null ||
+        value.trim().isEmpty ||
+        value.trim().length < 4 ||
+        !value.trim().contains("@") ||
+        !value.trim().contains(".")) {
+      return "Valid Email Address which contains @ and .";
+    }
+    return null;
+  }
+
+  static String? passValid(String? value) {
+    if (value == null || value.trim().isEmpty || value.trim().length < 8) {
+      return "Please add A Strong 8 char Pass";
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,23 +54,17 @@ class CredentialFormContainer extends StatelessWidget {
 
     String? rePass;
 
-    void onSaveCre() {
+    void onSaveCre() async {
       if (formKeyCre.currentState!.validate()) {
         formKeyCre.currentState!.save();
         DialogsLoading.showProgressBar(context);
+
         if (isSign == true) {
-          if (passCre != rePass) {
-            DialogsLoading.removeMessage(context);
-            DialogsLoading.showMessage(context,
-                "Please check password are mismatch or Number not valid");
-          } else {
-            final userCreate = fsApis.firebaseAuth
+          final passValid = credentialPassValid(passCre!, rePass!, context);
+          if (passValid) {
+            final userCreate = await fsApis.firebaseAuth
                 .createUserWithEmailAndPassword(
                     email: emailAdrress!, password: passCre!);
-
-            userCreate.whenComplete(
-              () {},
-            );
 
             if (!context.mounted) return;
             Navigator.pop(context);
@@ -56,9 +76,10 @@ class CredentialFormContainer extends StatelessWidget {
                 ),
                 const Offset(0, 1),
                 Curves.easeInCubic);
+            return;
           }
         } else {
-          signInHelpers.signIn(context, emailAdrress!, passCre!);
+          SignApis.signIn(context, emailAdrress!, passCre!);
           return;
         }
       }
@@ -72,21 +93,12 @@ class CredentialFormContainer extends StatelessWidget {
           Text(
             isSign ? "Create Account" : "Account LogIn",
             textAlign: TextAlign.center,
-            style: AppFont.bodyMedium(context).copyWith(color: Colors.white),
+            style: AppFont.bodyMedium(context).copyWith(color: Colors.black),
           ),
           const Gap(mediumGap),
           FormFieldText(
             txtInType: TextInputType.text,
-            vaildator: (value) {
-              if (value == null ||
-                  value.trim().isEmpty ||
-                  value.trim().length < 4 ||
-                  !value.trim().contains("@") ||
-                  !value.trim().contains(".")) {
-                return "Valid Email Address which contains @ and .";
-              }
-              return null;
-            },
+            vaildator: (value) => emailValid(value),
             onSave: (inputTxt) {
               emailAdrress = inputTxt.toLowerCase();
             },
@@ -98,14 +110,7 @@ class CredentialFormContainer extends StatelessWidget {
           const Gap(normalGap),
           FormFieldText(
             txtInType: TextInputType.text,
-            vaildator: (value) {
-              if (value == null ||
-                  value.trim().isEmpty ||
-                  value.trim().length < 8) {
-                return "Please add A Strong 8 char Pass";
-              }
-              return null;
-            },
+            vaildator: (value) => passValid(value),
             onSave: (inputTxt) {
               passCre = inputTxt;
             },

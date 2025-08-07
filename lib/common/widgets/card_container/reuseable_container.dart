@@ -5,16 +5,18 @@ class ReuseableContainer extends StatelessWidget {
       {super.key,
       required this.ctColor,
       required this.ctMargin,
-      this.ctWidget});
+      this.ctWidget,
+      this.ctWidth});
 
   final Color ctColor;
   final EdgeInsetsGeometry ctMargin;
   final Widget? ctWidget;
+  final double? ctWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: ctWidth,
       margin: ctMargin,
       decoration: BoxDecoration(
         boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 5)],

@@ -53,9 +53,12 @@ dependencies:
   animated_notch_bottom_bar: ^1.0.3
   flutter_swiper_view: ^1.1.8
   dartz: ^0.10.1
-  flutter_riverpod: ^2.5.1
+  flutter_riverpod: ^2.6.1
   transparent_image: ^2.0.1
   shimmer: ^3.0.0
+  cached_network_image: ^3.4.1
+  fl_chart: ^1.0.0
+  flutter_svg: ^2.2.0
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,10 @@
 import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-
-import 'package:wcycle_bd_store/screen/slider_screen.dart';
+import 'package:wcycle_bd_store/presentation/main_screen/pages/main_screen.dart';
 
 import '../common/helper/dialog_loading/dialogs_helper.dart';
 
@@ -28,7 +28,7 @@ class FirebaseApi {
         DialogsLoading.showMessage(context, "Sign Up Complete");
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const SliderScreen()),
+          MaterialPageRoute(builder: (context) => const MainScreen()),
           //ModalRoute.withName("/Home")
           (route) => false,
         ).catchError((error) {

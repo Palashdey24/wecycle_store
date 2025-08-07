@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wcycle_bd_store/common/cliper/bezier_curves_bottom.dart';
 import 'package:wcycle_bd_store/common/cliper/bezier_curves_top.dart';
 import 'package:wcycle_bd_store/common/dimensions/phone_size.dart';
-import 'package:wcycle_bd_store/core/config/theme/app_color.dart';
 import 'package:wcycle_bd_store/core/config/theme/app_font.dart';
-import 'package:wcycle_bd_store/presentation/auth/widgets/credential/credential_btn.dart';
 import 'package:wcycle_bd_store/core/config/theme/gap.dart';
+import 'package:wcycle_bd_store/presentation/auth/widgets/credential/credential_btn.dart';
 import 'package:wcycle_bd_store/presentation/auth/widgets/credential/credential_form_container.dart';
 import 'package:wcycle_bd_store/presentation/auth/widgets/credential/credential_text_container.dart';
 
@@ -38,7 +37,7 @@ class _CredentialFrameState extends State<CredentialFrame> {
               clipper: !isSign ? BezierCurvesTop() : BezierCurvesBottom(),
               child: AnimatedContainer(
                 decoration: BoxDecoration(
-                    color: Colors.orange,
+                    color: Colors.black,
                     borderRadius: BorderRadius.vertical(
                         bottom:
                             isSign ? const Radius.circular(20) : Radius.zero,
@@ -71,7 +70,7 @@ class _CredentialFrameState extends State<CredentialFrame> {
               padding: const EdgeInsets.all(normalGap),
               alignment: isSign ? Alignment.topCenter : Alignment.bottomCenter,
               width: widths,
-              color: AppColor.kPrimaryColor,
+              color: Colors.white,
               child: CredentialFormContainer(isSign: isSign),
             ))
       ],

@@ -9,4 +9,10 @@ class AppString {
   String formatedDate(DateTime date) {
     return dateFormtter.format(date);
   }
+
+  final orderDateFormtter = DateFormat.yMMMMd('en_US').add_jm();
+
+  String formatedOrderDate(DateTime date) {
+    return orderDateFormtter.format(date);
+  }
 }
